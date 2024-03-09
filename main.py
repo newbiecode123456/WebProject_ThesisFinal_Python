@@ -26,50 +26,15 @@ def main():
     np.set_printoptions(suppress=True)
     
     # xử lý chọn model
-    menu = ["Home", "Model 1", "Model 2", "Model 3", "Model 4", "Model CNN", "Model TM" ]
+    menu = ["Home", "Model CNN Xception", "Model TeachableMachine"]
     st.sidebar.title('Navigation')
     choice = st.sidebar.selectbox("Chọn một Model", menu)
     isLoaded = False
     pixels = 0
     
     if choice == "Home":
-        st.write("Nhấn vào Navigator để lựa chọn model!!!!")
-    elif choice == "Model 1":
-        st.subheader("Model 1")
-        st.write("Model 1: Sử dụng kiến trúc VGG16 mô hình CNN để chuẩn đoán (được train cơ bản trên 10 epochs)")
-        st.write("Colab train mô hình VGG16 [tại đây](https://colab.research.google.com/drive/1_HBOtbnRYRp1hp76UGxloqSFiuqwdcgK?ouid=111422511877040041683&usp=drive_link)")
-        # load model
-        with st.spinner("Đang thực hiện load Model..."):
-            model = load_model("models_comparision/cnn_vgg16_10epochs_model.h5", compile=False)
-            isLoaded = True
-            pixels = 224
-    elif choice == "Model 2":
-        st.subheader("Model 2")
-        st.write("Model 2: Sử dụng kiến trúc ResNet50 với mô hình CNN để chuẩn đoán (được train cơ bản trên 10 epochs)")
-        st.write("Colab train mô hình ResNet50 [tại đây](https://colab.research.google.com/drive/137Bbwhi7SgU8hRMV1tAzYsE6yKhD7qTG?ouid=111422511877040041683&usp=drive_link)")
-        # load model
-        with st.spinner("Đang thực hiện load Model..."):
-            model = load_model("models_comparision/cnn_resnet50_10epochs_model.h5", compile=False)
-            isLoaded = True
-            pixels = 224
-    elif choice == "Model 3":
-        st.subheader("Model 3")
-        st.write("Model 3: Sử dụng kiến trúc DenseNet121 với mô hình CNN để chuẩn đoán (được train cơ bản trên 10 epochs)")
-        st.write("Colab train mô hình DenseNet121 [tại đây](https://colab.research.google.com/drive/1Zsve44wV0XKz-K9Xlv-_piS9tIb9G1ad?ouid=111422511877040041683&usp=drive_link)")
-        # load model
-        with st.spinner("Đang thực hiện load Model..."):
-            model = load_model("models_comparision/cnn_densenet_10epoch_model.h5", compile=False)
-            isLoaded = True
-            pixels = 224
-    elif choice == "Model 4":
-        st.subheader("Model 4")
-        st.write("Model 4: Sử dụng kiến trúc Xception với mô hình CNN để chuẩn đoán (được train cơ bản trên 10 epochs)")
-        st.write("Colab train mô hình Xception [tại đây](https://colab.research.google.com/drive/1lKN-nt9sQgNsMUOzKKkREI-UhrvoTb_Y?ouid=111422511877040041683&usp=drive_link)")
-        with st.spinner("Đang thực hiện load Model..."):
-            model = load_model("models_comparision//cnn_xception_10epochs_final_model.h5", compile=False)
-            isLoaded = True
-            pixels = 299
-    elif choice == "Model CNN":
+        st.write("Nhấn vào Navigation trước để lựa chọn model!!!!")
+    elif choice == "Model CNN Xception":
         st.subheader("Model CNN kiến trúc Xception cuối có điều chỉnh các tham số")
         st.write("Colab train mô hình Xception cuối [tại đây](https://colab.research.google.com/drive/12magZlRm7Nu0G2RQjkW5ICj6G5C3BoHk?ouid=111422511877040041683&usp=drive_link)")
         st.write("Model CNN")
@@ -77,7 +42,7 @@ def main():
             model = load_model("final_xception_model/cnn_xception_50epochs_addbatchnormolization+dropout_final_model.h5", compile=False)
             isLoaded = True
             pixels = 299
-    elif choice == "Model TM":
+    elif choice == "Model TeachableMachine":
         st.subheader("Model sử dụng Teachable Machine")
         st.write("Model Teachable Machine: Sử dụng dụng mô hình của teachable machine để dự đoán")
         st.write("Trang chủ  [Teachable Machine](https://teachablemachine.withgoogle.com/)")
